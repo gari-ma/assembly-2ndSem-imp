@@ -8,3 +8,10 @@
 2. 8086 -> contains 8086 programmes
 3. questions -> contains questions for further practise.
 
+# Some Important 8085 opcodes and its usages
+
+1. MOV A,B   => USed for register to register data transfer
+2. MVI A,20h => used for immediate data transfer to register
+3. LDA 2020h => Loads the content of memory location [2020h] to `Accumulator`   
+4. STA 5050h => stores the value of accumulator to memory location [5050h]
+... ( More to come )
