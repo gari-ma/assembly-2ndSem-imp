@@ -14,5 +14,18 @@
 2. MVI A,20h => used for immediate data transfer to register
 3. LDA 2020h => Loads the content of memory location [2020h] to `Accumulator`   
 4. STA 5050h => stores the value of `Accumulator` to memory location [5050h]
+5. LXI B, 2000h => stores 2000h in BC pair (notice X says pair)
+
+# Looping in 8085/8086
+There are various ways of looping in 8085/8086. One of the example is explained below:
+
+```asm
+MOV C, 10h    ; initialize a counter register
+
+goto:         ; create a label for loop control
+; Paste the code that must be inside in a loop here
+DCR C         ; decrement the value of counter
+JNZ goto      ; loops until the value of C becomes zero
+```
 
 ... ( More to come )
