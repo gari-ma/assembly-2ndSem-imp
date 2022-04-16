@@ -23,7 +23,7 @@
 ; save the current memory location to HL pair
 LXI h, 1050h
 
-MOV C, 0Ah ; 🚀🚀🚀🚀🚀 TODO : Needs correction here 
+MOV C, 10h ; 🚀🚀🚀🚀🚀 10h = 16 in hex
 
 goto:
 ; now we have a pointer m which points to the memory location pointed by HL pair
