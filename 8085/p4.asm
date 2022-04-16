@@ -1,11 +1,10 @@
-; Sixteen bytes of data are stored in memory location at 1050H to 105FH. Transfer all the data
-; to another memory location starting from 1070h
+; Sixteen data are stored in memory location at 1050H to 105FH. Transfer the entire block of
+; data to new location starting at 1070H
 
 
 
-
-; save the current memory location to HL pair and BC pair
-LXI h, 1050h
+; save the current memory location to HL pair
+LXI h, 1050h   
 LXI b, 1070h
 
 MOV C, 0Ah ; 🚀🚀🚀🚀🚀 TODO : Needs correction here 
@@ -13,12 +12,9 @@ MOV C, 0Ah ; 🚀🚀🚀🚀🚀 TODO : Needs correction here
 goto:
 ; now we have a pointer m which points to the memory location pointed by HL pair
 ; we need to set the value of m to FFh which is equivalent in setting the value of memory location pointed by HL pair
-MOV a, m
-STAX  b 
-
-; Now to get to another preeceding location, we increase the value of HL pair and BC by 1
+MVI m, 
+; Now to get to another preeceding location, we increase the value of HL pair by 1
 INX h
-INX b
 ; we decrease C by 1 everytimne to control looping
 DCR C
 
