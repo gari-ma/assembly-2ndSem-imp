@@ -5,9 +5,32 @@
 
 LXI H, 2050h  ; initialize the start address
 MOV A, 00H    ; cleaning the accumulator
+MOV B, 00h    ; for storing the sum
+MOV C, 00h    ; for storing the carry
 
-; check the current value 
-loop:
-    ADD m ; add memory to accumulator
+
+loop: 
+    ADC m ; add memory to accumulator
+    MOV B,A ; store sum in B
+    MOV A, 00h ; clears the accumulator
+    ADD m ; this line is to change the status of the ZF
+    MOV A, B ; set the sum back to accumulator, MOV instruction does not affect ZF
+JNZ loop
+
+JNC nocarry
+    MOV C, 01h  ; set the carry as 1
+nocarry:
+; output sum in port 1
+MOV A,B
+OUT 01h 
+
+; output carry in port 2
+MOV A,C
+OUT 02h
+
+HLT
+
+
+
     
     
