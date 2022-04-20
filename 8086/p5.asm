@@ -1,0 +1,1 @@
+; Program to display character with attribute
