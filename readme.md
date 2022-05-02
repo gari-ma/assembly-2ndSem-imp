@@ -53,6 +53,21 @@ MAIN ENDP
 END MAIN
 ```
 
+# Interrupts Actions 
+```c
+interrupt(word_loc) {
+     current_operation();
+     push(flag);
+     push(cs_value);
+     push(ip_value);
+     cs_value = word_loc;
+     ip_value = word_loc + word(1);
+     intr_flag,trap_flag = 0;
+}
 
+// For calling
+Nmi = interrupt(0008h);
+Intn = interrupt(n==0 ? 4*4 : 4*n);
+```
 
 ... ( More to come )
